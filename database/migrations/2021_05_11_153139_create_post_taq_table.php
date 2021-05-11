@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePostTaqTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('post_taq', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            // clave foranea
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('taq_id');
+            // restricciones de clave foranea
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('taq_id')->references('id')->on('taqs')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('post_taq');
+    }
+}
