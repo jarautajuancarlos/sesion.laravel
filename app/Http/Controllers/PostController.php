@@ -10,6 +10,11 @@ use App\Models\Post;
 // IMPORTAMOS MODELO CARTEGORY
 use App\Models\Category;
 
+// IMPORTAMOS MODELO TAQ
+use App\Models\Taq;
+
+
+
 class PostController extends Controller
 {
     //CREAMOS METODO INDEX
@@ -42,6 +47,11 @@ class PostController extends Controller
                       ->paginate(4);
 
       return view('posts.category', compact('posts', 'category'));
+
+      // CREAMOS METODO PARA TAQ
+      public function taq(Taq $taq){
+        return $taq;
+      }
     }
 
 
