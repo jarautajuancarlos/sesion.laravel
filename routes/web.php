@@ -14,6 +14,11 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 // CREAMOS RUTA PARA VER POSTS POR CATEGORIAS
 Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
 
+// CREAMOS RUTA PARA VER POSTS POR ETIQUETAS
+Route::get('taq/{taq}'), [PostController::class, 'taq'])->name('posts.taq');
+
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
