@@ -19,6 +19,6 @@ class PostController extends Controller
 
     // CREAMOS METODO SHOW
     public function show(Post $post){
-      return $post;
+      return view('posts.show', compact('post'));
     }
 }
