@@ -48,11 +48,12 @@ class PostController extends Controller
 
       return view('posts.category', compact('posts', 'category'));
 
+    }
+
       // CREAMOS METODO PARA TAQ
       public function taq(Taq $taq){
-        return $taq;
+        return $taq->posts()->where('status', 2)->latest('id')->paginate(4);
       }
-    }
 
 
 

@@ -15,7 +15,7 @@
 
     <div class="px-6 pt-4 pb-2">
       @foreach($post->taqs as $taq)
-        <a href=""
+        <a href="{{route('posts.taq', $taq)}}"
           class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700 mr-2">
           {{$taq->name}}
         </a>
