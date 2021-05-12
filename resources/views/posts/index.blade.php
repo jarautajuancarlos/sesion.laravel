@@ -11,13 +11,16 @@
         style="background-image: url({{Storage::url(optional($post->image)->url)}})">
           <div class=" w-full h-full px-8 flex flex-col justify-center">
             <div>
+                @foreach ($post->taqs as $taq)
+                  <a href="" class="inline-block px-3 h-6 bg-{{$taq->color}}-600 text-white rounded-full">{{$taq->name}}</a>
+                @endforeach
             </div>
+
             <h1 class="text-4xl text-white leading-8 font-bold">
               <a>{{$post->name}}</a>
             </h1>
           </div>
         </article>
-
       @endforeach
 
     </div>
