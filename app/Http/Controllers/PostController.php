@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 // IMPORTAMOS MODELO POST
 use App\Models\Post;
 
+// IMPORTAMOS MODELO CARTEGORY
+use App\Models\Category;
+
 class PostController extends Controller
 {
     //CREAMOS METODO INDEX
@@ -30,4 +33,28 @@ class PostController extends Controller
 
       return view('posts.show', compact('post', 'similares'));
     }
+
+    // CREAMOS METODO CATEGORY
+    public function category(Category $category){
+      return $category;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
