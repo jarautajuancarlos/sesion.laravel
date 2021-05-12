@@ -19,6 +19,15 @@ class PostController extends Controller
 
     // CREAMOS METODO SHOW
     public function show(Post $post){
-      return view('posts.show', compact('post'));
+
+      // BUSCAMOS LOS POST RELACIONADOS POR TAQS
+      $similares = Post::where('category_id', $post->category_id)
+                        ->where('status', 2)
+                        ->where('id', '!=', $post->id)
+                        ->latest('id')
+                        ->take(4)
+                        ->get();
+
+      return view('posts.show', compact('post', 'similares'));
     }
 }

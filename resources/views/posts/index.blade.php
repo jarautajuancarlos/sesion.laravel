@@ -19,7 +19,9 @@
             </div>
 
             <h1 class="text-4xl text-white leading-8 font-bold">
-              <a href="{{route('posts.show', $post)}}" >{{$post->name}}</a>
+              <a href="{{route('posts.show', $post)}}">
+                {{$post->name}}
+              </a>
             </h1>
           </div>
         </article>
