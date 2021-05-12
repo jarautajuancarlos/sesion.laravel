@@ -16,4 +16,9 @@ class PostController extends Controller
 
       return view('posts.index', compact('posts'));
     }
+
+    // CREAMOS METODO SHOW
+    public function show(Post $post){
+      return $post;
+    }
 }
