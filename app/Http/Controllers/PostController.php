@@ -36,7 +36,10 @@ class PostController extends Controller
 
     // CREAMOS METODO CATEGORY
     public function category(Category $category){
-      return $category;
+      $posts = Posts::where('category_id', $category->id);
+                      ->where('status', 2)
+                      ->latest('id')
+                      ->paginate(6);
     }
 
 
