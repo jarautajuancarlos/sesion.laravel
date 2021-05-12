@@ -18,6 +18,9 @@ class CreateTaqsTable extends Migration
             // rellenamos los campos de tabla
             $table->string('name');
             $table->string('slug');
+
+            // añadimos campo color
+            $table->string('color');
             $table->timestamps();
         });
     }

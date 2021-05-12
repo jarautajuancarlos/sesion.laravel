@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
 
         Category::factory(4)->create();
         Taq::factory(8)->create();
-        Post::factory(100)->create();
+        // Post::factory()->create();
 
         $this->call(PostSeeder::class);
     }

@@ -6,7 +6,7 @@ use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 // IMPORTAMOS HELPER
-use Illuminate\Support\Str;
+// use Illuminate\Support\Str;
 
 class ImageFactory extends Factory
 {
@@ -29,7 +29,7 @@ class ImageFactory extends Factory
 
         return [
 
-          'url' =>'posts/' . $this->faker->image('public/storage/posts', 640, 480, null, false)
+          'url' => 'posts/' . $this->faker->image('public/storage/posts', 640, 480, null, false)
 
         ];
     }
