@@ -44,7 +44,10 @@ class CategoryController extends Controller
           'name' => 'required',
           'slug' => 'required|unique:categories'
         ]);
-        return $request->all();
+
+        // NUEVO REGISTRO DE CATEGORIA
+        $category= Category::create($request->all());
+        return redirect()->route('admin.categories.edit', $category);
     }
 
     /**
