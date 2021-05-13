@@ -14,10 +14,26 @@
           <div class= "form-group m-3">
               {{Form::label('name', 'Nombre')}}
               {{Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoría'])}}
+
+              <!-- ERRORES DE VALIDACIÓN -->
+              @error('name')
+                <span class="text-danger">
+                  {{$message}}
+                </span>
+              @enderror
+
           </div>
           <div class= "form-group m-3">
               {{Form::label('slug', 'Slug')}}
               {{Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug de la categoría', 'readonly'])}}
+
+              <!-- ERRORES DE VALIDACIÓN -->
+              @error('slug')
+                <span class="text-danger">
+                  {{$message}}
+                </span>
+              @enderror
+
           </div>
 
           {{ Form::submit('Crer categoría', ['class' => 'btn btn-primary m-3 ' ]) }}

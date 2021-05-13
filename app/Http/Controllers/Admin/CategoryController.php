@@ -39,6 +39,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // REGLAS DE VALIDACIÓN
+        $request->validate([
+          'name' => 'required',
+          'slug' => 'required|unique:categories'
+        ]);
         return $request->all();
     }
 
