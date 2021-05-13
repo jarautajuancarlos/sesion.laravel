@@ -52,7 +52,9 @@ class PostController extends Controller
 
       // CREAMOS METODO PARA TAQ
       public function taq(Taq $taq){
-        return $taq->posts()->where('status', 2)->latest('id')->paginate(4);
+        $posts = $taq->posts()->where('status', 2)->latest('id')->paginate(4);
+
+        return view('posts.taq', compact('posts', 'taq'));
       }
 
 
