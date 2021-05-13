@@ -9,9 +9,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    // ASIGNACION MASIVA
+    protected $fillable = ['name', 'slug'];
+
     // RELACION DE UNO A MUCHOS
 
     public function posts(){
       return $this->hasMany(Post::class);
     }
+
+
+    
+
 }
