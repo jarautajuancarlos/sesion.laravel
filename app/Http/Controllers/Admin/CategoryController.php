@@ -47,7 +47,7 @@ class CategoryController extends Controller
 
         // NUEVO REGISTRO DE CATEGORIA
         $category= Category::create($request->all());
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoría se creó con exito');
+        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoría se creó con éxito');
     }
 
     /**
@@ -89,7 +89,7 @@ class CategoryController extends Controller
 
       $category->update($request->all());
 
-      return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoría se actualizo con exito');
+      return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoría se actualizo con éxito');
     }
 
     /**
@@ -100,6 +100,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index')->with('info', 'La categoría se eliminó con éxito');;
     }
 }

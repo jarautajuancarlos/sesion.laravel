@@ -8,6 +8,14 @@
 
 @section('content')
 
+@if(session('info'))
+<div class="alert alert-success d-flex align-items-center" role="alert">
+  <strong>
+    {{session('info')}}
+  </strong>
+</div>
+@endif
+
     <div class="card">
       <div class=card-body>
 

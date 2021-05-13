@@ -12,6 +12,11 @@ class Category extends Model
     // ASIGNACION MASIVA
     protected $fillable = ['name', 'slug'];
 
+    // PASAMOS SLUG CATEGORIA A URL NAVEGADOR
+    public function getRouteKeyName(){
+      return "slug";
+    }
+
     // RELACION DE UNO A MUCHOS
 
     public function posts(){
@@ -19,6 +24,6 @@ class Category extends Model
     }
 
 
-    
+
 
 }
