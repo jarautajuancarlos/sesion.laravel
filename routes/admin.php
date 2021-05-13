@@ -6,4 +6,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminHomeController;
 
 // CREAMOS RUTA PARA VISTA ADMIN
-Route::get('', [AdminHomeController::class, 'index']);
+Route::get('', [AdminHomeController::class, 'index'])->name('admin.home');
