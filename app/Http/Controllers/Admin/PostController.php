@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 // IMPORTAMOS MODELO POST
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Taq;
 
 class PostController extends Controller
 {
@@ -27,8 +29,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.posts.create');
+        $categories = Category::pluck('name', 'id');
+        $taqs = Taq::all();
+
+        return view('admin.posts.create', compact('categories', 'taqs'));
     }
 
     /**
