@@ -50,7 +50,15 @@ class TaqController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $request->validate([
+          'name' => 'required',
+          'slug' => 'required|unique:taqs',
+          'color' => 'required'
+        ]);
+
+        $taq = Taq::create($request->all());
+
+        return redirect()->route('admin.taqs.edit', compact('taq'));
     }
 
     /**

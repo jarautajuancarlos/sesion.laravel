@@ -9,6 +9,8 @@ class Taq extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'color'];
+
     // RELACION MUCHOS A MUCHOS
     public function posts(){
       return $this->belongsToMany(Post::class);
