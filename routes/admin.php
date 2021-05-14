@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\CategoryController;
 // IMPORTAMOS CONTROLADOR CATEGORY
 use App\Http\Controllers\Admin\TaqController;
 
+// IMPORTAMOS CONTROLADOR Post
+use App\Http\Controllers\Admin\PostController;
+
 
 
 
@@ -22,3 +25,6 @@ Route::resource('categories', CategoryController::class)->names('admin.categorie
 
 // CREAMOS RUTAS RESOURCE CATEGORIES
 Route::resource('taqs', TaqController::class)->names('admin.taqs');
+
+// CREAMOS RUTAS RESOURCE POST
+Route::resource('posts', PostController::class)->names('admin.posts');
