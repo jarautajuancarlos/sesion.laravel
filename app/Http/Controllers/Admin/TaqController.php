@@ -121,6 +121,8 @@ class TaqController extends Controller
      */
     public function destroy( Taq $taq)
     {
-        //
+        $taq->delete();
+
+        return redirect()->route('admin.taqs.index')->with('info', 'La etiqueta se eliminó con éxito');
     }
 }

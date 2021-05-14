@@ -6,13 +6,22 @@
 
 <a class="btn btn-secondary btn-sm float-right"
   href="{{route('admin.taqs.create')}}">
-  Nueva Etiqueta
+  Agregar Etiqueta
 </a>
 
     <h1>Lista de Etiquetas</h1>
 @stop
 
 @section('content')
+
+@if (session('info'))
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+    <strong>
+      {{session('info')}}
+    </strong>
+  </div>
+@endif
+
 <div class="card">
   <div class=card-body>
 

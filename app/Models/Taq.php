@@ -11,6 +11,11 @@ class Taq extends Model
 
     protected $fillable = ['name', 'slug', 'color'];
 
+    // PASAMOS SLUG CATEGORIA A URL NAVEGADOR
+    public function getRouteKeyName(){
+      return "slug";
+    }
+
     // RELACION MUCHOS A MUCHOS
     public function posts(){
       return $this->belongsToMany(Post::class);

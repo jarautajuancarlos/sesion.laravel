@@ -247,11 +247,13 @@ return [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+              'active' => ['admin/categories*']
         ],
         [
             'text' => 'Etiquetas',
             'route'  => 'admin.taqs.index',
             'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['admin/taqs*']
         ],
         [
             'text'    => 'multilevel',
