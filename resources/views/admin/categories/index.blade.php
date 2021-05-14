@@ -3,27 +3,28 @@
 @section('title', 'Coders Free')
 
 @section('content_header')
+
+    <a class="btn btn-secondary btn-sm float-right"
+      href="{{route('admin.categories.create')}}">
+      Agregar categoría
+    </a>
     <h1>Lista de Categorías</h1>
 @stop
 
 @section('content')
 
-@if(session('info'))
-<div class="alert alert-success d-flex align-items-center" role="alert">
-  <strong>
-    {{session('info')}}
-  </strong>
-</div>
-@endif
+
+  @if(session('info'))
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+    <strong>
+      {{session('info')}}
+    </strong>
+  </div>
+  @endif
+
 
     <div class="card">
       <div class=card-body>
-
-      <div class="card-header">
-        <a class="btn btn-secondary" href="{{route('admin.categories.create')}}">
-          Agregar categoría
-        </a>
-      </div>
         <table class="table table-striped">
 
           <thead>

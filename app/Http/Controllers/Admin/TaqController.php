@@ -18,7 +18,8 @@ class TaqController extends Controller
      */
     public function index()
     {
-        //
+        $taqs = Taq::all();
+        return view('admin.taqs.index', compact('taqs'));
     }
 
     /**
@@ -28,7 +29,7 @@ class TaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.taqs.create');
     }
 
     /**
@@ -50,7 +51,7 @@ class TaqController extends Controller
      */
     public function show( Taq $taq)
     {
-        //
+        return view('admin.taqs.show', compact('taq'));
     }
 
     /**
@@ -61,7 +62,7 @@ class TaqController extends Controller
      */
     public function edit( Taq $taq)
     {
-        //
+        return view('admin.taqs.edit', compact('taq'));
     }
 
     /**
