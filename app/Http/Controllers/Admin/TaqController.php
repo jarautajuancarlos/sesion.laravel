@@ -58,7 +58,7 @@ class TaqController extends Controller
 
         $taq = Taq::create($request->all());
 
-        return redirect()->route('admin.taqs.edit', compact('taq'));
+        return redirect()->route('admin.taqs.edit', compact('taq'))->with('info', 'La etiqueta se creó con éxito');
     }
 
     /**
@@ -80,7 +80,17 @@ class TaqController extends Controller
      */
     public function edit( Taq $taq)
     {
-        return view('admin.taqs.edit', compact('taq'));
+      $colors = [
+        'red' => 'Color rojo',
+        'yellow' => 'Color amarillo',
+        'green' => 'Color verde',
+        'blue' => 'Color azul',
+        'indigo' => 'Color indigo',
+        'purple' => 'Color morado',
+        'pink' => 'Color rosado'
+      ];
+
+        return view('admin.taqs.edit', compact('taq', 'colors'));
     }
 
     /**
@@ -92,7 +102,15 @@ class TaqController extends Controller
      */
     public function update(Request $request,  Taq $taq)
     {
-        //
+      $request->validate([
+        'name' => 'required',
+        'slug' => "required|unique:taqs,slug,$taq->id",
+        'color' => 'required'
+      ]);
+
+      $taq->update($request->all());
+
+      return redirect()->route('admin.taqs.edit', $taq)->with('info', 'La etiqueta se actualizó con éxito');
     }
 
     /**
