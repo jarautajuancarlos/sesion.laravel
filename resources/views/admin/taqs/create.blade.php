@@ -20,6 +20,17 @@
             {{Form::text('slug', null, ['class' => 'form-control',
              'placeholder' => 'Ingrese el slug de la etiqueta', 'readonly'])}}
           </div>
+          <div class="form-group">
+            <!-- <label for="">Color: </label> -->
+            <!-- <select name="color" id="" class="form-control">
+              <option value="red">Color rojo</option>
+              <option value="green">Color verde</option>
+              <option value="blue" selected>Color azul</option>
+            </select> -->
+            {{Form::label('color', 'Color')}}
+            {{Form::select('color', $colors, null, ['class' => 'form-control'])}}
+          </div>
+          {{Form::submit('Crear etiqueta', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
 
       </div>

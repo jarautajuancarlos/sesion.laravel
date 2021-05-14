@@ -29,7 +29,17 @@ class TaqController extends Controller
      */
     public function create()
     {
-        return view('admin.taqs.create');
+        $colors = [
+          'red' => 'Color rojo',
+          'yellow' => 'Color amarillo',
+          'green' => 'Color verde',
+          'blue' => 'Color azul',
+          'indigo' => 'Color indigo',
+          'purple' => 'Color morado',
+          'pink' => 'Color rosado'
+        ];
+
+        return view('admin.taqs.create', compact('colors'));
     }
 
     /**
@@ -40,7 +50,7 @@ class TaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
