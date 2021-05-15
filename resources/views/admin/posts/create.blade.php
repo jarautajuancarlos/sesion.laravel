@@ -11,7 +11,7 @@
       <div class="card-body">
         {!! Form::open(['route' => 'admin.posts.store', 'autocommplete' => 'off']) !!}
 
-        {{!! Form::hidden('user_id', auth()->user()->id)!!}}
+        {!! Form::hidden('user_id', auth()->user()->id)!!}
 
         <div class="form-group">
           {!! Form::label('name', 'Nombre') !!}
