@@ -10,6 +10,8 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Taq;
 
+use App\Http\Requests\StorePostRequest;
+
 class PostController extends Controller
 {
     /**
@@ -41,9 +43,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
+        return "las validaciones pasaron correctamente";
     }
 
     /**

@@ -38,7 +38,32 @@ class StorePostRequest extends FormRequest
             'extract' => 'required',
             'body' => 'required'
           ]);
-        }
+        };
 
         return $rules;
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
