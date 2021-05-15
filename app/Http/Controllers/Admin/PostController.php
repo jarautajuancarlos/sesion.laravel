@@ -45,7 +45,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        return "las validaciones pasaron correctamente";
+        $post = Post::create($request->all());
+
+        if($request->taqs){
+          $post->taqs()->attach($request->taqs);
+        }
+
+        return redirect()->route('admin.posts.edit', $post);
     }
 
     /**
