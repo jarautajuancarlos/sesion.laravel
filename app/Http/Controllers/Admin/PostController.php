@@ -119,6 +119,11 @@ class PostController extends Controller
             ]);
           }
         }
+
+        if($request->taqs){
+          $post->taqs()->sync($request->taqs);
+        }
+
         return redirect()->route('admin.posts.edit', $post)->with('info', 'El post se actualizó con éxito');
     }
 
