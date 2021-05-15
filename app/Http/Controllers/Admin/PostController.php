@@ -11,7 +11,7 @@ use App\Models\Category;
 use App\Models\Taq;
 use Illuminate\Support\Facades\Storage;
 
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -44,7 +44,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request)
+    public function store(PostRequest $request)
     {
         // return Storage::put('posts', $request->file('file'));
 
@@ -85,8 +85,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
-        return view('admin.posts.edit', compact('post'));
+      $categories = Category::pluck('name', 'id');
+      $taqs = Taq::all();
+
+        return view('admin.posts.edit', compact('post', 'categories', 'taqs'));
     }
 
     /**
@@ -96,7 +98,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         //
     }

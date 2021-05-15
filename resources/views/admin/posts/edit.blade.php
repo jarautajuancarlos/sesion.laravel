@@ -7,13 +7,20 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-@stop
+    <div class="card">
+      <div class="card-body">
+        {!! Form::Model($post, ['route' => ['admin.posts.update', $post],
+        'autocomplete' => 'off', 'files' => true, 'method' => 'PUT']) !!}
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+        {!! Form::hidden('user_id', auth()->user()->id)!!}
 
-@section('js')
-    <script> console.log('Hi!'); </script>
+        @include('admin.posts.partials.form')
+
+        {!! Form::submit('Actualizar Post', ['class' => 'btn btn-primary' ]) !!}
+
+
+        {!! Form::close() !!}
+
+      </div>
+    </div>
 @stop
