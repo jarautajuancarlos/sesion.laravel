@@ -8,7 +8,8 @@
 
         <article
         class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif "
-        style="background-image: url({{Storage::url(optional($post->image)->url)}})">
+        style="background-image: url(@if($post->image) {{Storage::url($post->image->url)}} @else https://cdn.pixabay.com/photo/2014/07/07/13/42/watercolor-386189_960_720.jpg @endif)">
+        <!-- style="background-image: url({{Storage::url(optional($post->image)->url)}})"> -->
           <div class=" w-full h-full px-8 flex flex-col justify-center">
             <div>
                 @foreach ($post->taqs as $taq)
