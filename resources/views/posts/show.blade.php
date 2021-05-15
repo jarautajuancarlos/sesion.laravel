@@ -18,7 +18,7 @@
           @else
             <img
                 class="w-full h-72 object-cover object-center"
-                src="https://cdn.pixabay.com/photo/2021/04/13/09/50/road-6175186__340.jpg" alt="">
+                src="https://cdn.pixabay.com/photo/2014/07/07/13/42/watercolor-386189_960_720.jpg" alt="">
           @endif
         </figure>
         <div class="text-base text-gray-500 mt-4">
@@ -34,10 +34,14 @@
         <ul>
           @foreach($similares as $similar)
             <li class="mb-4">
-              <a class ="flex"href="{{route('posts.show', $similar)}}">
-                <img class="w-36 h-20 object-cover object-center"src="{{Storage::url(optional($similar->image)->url)}}" alt="">
+              <a class ="flex" href="{{route('posts.show', $similar)}}">
+                @if($similar->image)
+                <img class=" w-36  object-cover object-center"src="{{Storage::url(optional($similar->image)->url)}}" alt="">
+                @else
+                <img class=" w-36 object-cover object-center"src="https://cdn.pixabay.com/photo/2014/07/07/13/42/watercolor-386189_960_720.jpg" alt="">
+                @endif
                 <span class="ml-2 text-gray-600">
-                  {{$post->name}}
+                  {{$similar->name}}
                 </span>
               </a>
             </li>
