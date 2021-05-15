@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('posts');
         // CREAMOS CARPETA PARA IMG
         Storage::makeDirectory('posts');
+
+        // PERMISSION
+        $this->call(RoleSeeder::class);
+
+
+
         // LLAMAMOS AL USERSEEDER
         $this->call(UserSeeder::class);
 
