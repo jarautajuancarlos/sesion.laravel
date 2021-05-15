@@ -46,15 +46,23 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        return Storage::put('posts', $request->file('file'));
+        // return Storage::put('posts', $request->file('file'));
 
-        // $post = Post::create($request->all());
-        //
-        // if($request->taqs){
-        //   $post->taqs()->attach($request->taqs);
-        // }
-        //
-        // return redirect()->route('admin.posts.edit', $post);
+        $post = Post::create($request->all());
+
+        if($request->file('file')){
+          $url = Storage::put('posts', $request->file('file'));
+
+          $post->image()->create([
+            'url' => $url
+          ]);
+        }
+
+        if($request->taqs){
+          $post->taqs()->attach($request->taqs);
+        }
+
+        return redirect()->route('admin.posts.edit', $post);
     }
 
     /**
