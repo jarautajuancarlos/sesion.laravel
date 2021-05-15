@@ -12,8 +12,6 @@
         {!! Form::Model($post, ['route' => ['admin.posts.update', $post],
         'autocomplete' => 'off', 'files' => true, 'method' => 'PUT']) !!}
 
-        {!! Form::hidden('user_id', auth()->user()->id)!!}
-
         @include('admin.posts.partials.form')
 
         {!! Form::submit('Actualizar Post', ['class' => 'btn btn-primary' ]) !!}
