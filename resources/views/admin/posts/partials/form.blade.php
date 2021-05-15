@@ -77,7 +77,7 @@
 <div class="row mb-3">
   <div class="col">
     <div class="image-wrapper">
-      @isset($post->image)
+      @isset ($post->image)
         <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
       @else
         <img id="picture" src="https://cdn.pixabay.com/photo/2014/07/07/13/42/watercolor-386189_960_720.jpg" alt="">
@@ -126,62 +126,3 @@
     @enderror
 
 </div>
-
-
-@section('css')
-    <style>
-      .image-wrapper{
-        position: relative;
-        padding-bottom: 56.25%;
-      }
-      .image-wrapper img{
-        position: absolute;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-@stop
-
-@section('js')
-  <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-
-  <script>
-  $(document).ready( function() {
-  $("#name").stringToSlug({
-    setEvents: 'keyup keydown blur',
-    getPut: '#slug',
-    space: '-'
-  });
-});
-
-ClassicEditor
-.create( document.querySelector( '#extract' ) )
-.catch( error => {
-            console.error( error );
-} );
-ClassicEditor
-.create( document.querySelector( '#body' ) )
-.catch( error => {
-            console.error( error );
-} );
-
-// CODIGO PARA CAMBIAR LA IMAGEN POR DEFECTO
-
-document.getElementById("file").addEventListener('change', cambiarImagen);
-
-  function cambiarImagen(event){
-    var file = event.target.files[0];
-
-    var reader = new FileReader();
-    reader.onload = (event) => {
-      document.getElementById("picture").setAttribute('src', event.target.result);
-    };
-
-    reader.readAsDataURL(file);
-    }
-
-  </script>
-
-@endsection

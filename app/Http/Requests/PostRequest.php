@@ -13,7 +13,9 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->user_id == auth()->id()){
+        // return true;
+
+        if($this->user_id == auth()->user()->id){
           return true;
         }else{
           return false;
