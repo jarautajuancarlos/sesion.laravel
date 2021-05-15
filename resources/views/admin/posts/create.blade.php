@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
       <div class="card-body">
-        {!! Form::open(['route' => 'admin.posts.store', 'autocommplete' => 'off']) !!}
+        {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
 
         {!! Form::hidden('user_id', auth()->user()->id)!!}
 
@@ -121,7 +121,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
 @stop
 
 @section('js')

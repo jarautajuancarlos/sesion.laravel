@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->user_id == auth()->user()->id){
+        if($this->user_id == auth()->id()){
           return true;
         }else{
           return false;
@@ -28,21 +28,20 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         $rules = [
-          'id' => 'required',
           'user_id' => 'required',
           'name' => 'required',
           'slug' => 'required|unique:posts',
+          'category_id' => 'required',
           'status' => 'required|in:1,2'
         ];
 
         if($this->status == 2){
           $rules = array_merge($rules, [
-            'category_id' => 'required',
             'taqs' => 'required',
             'extract' => 'required',
             'body' => 'required'
           ]);
-        };
+        }
 
         return $rules;
 
