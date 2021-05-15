@@ -89,6 +89,21 @@
 
         </div>
 
+        <div class="row mb-3">
+          <div class="col">
+            <div class="image-wrapper">
+              <img src="https://cdn.pixabay.com/photo/2014/07/07/13/42/watercolor-386189_960_720.jpg" alt="">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              {!! Form::label('file', 'Imagen que se mostrará en el post') !!}
+              {!! Form::file('file', ['class' => 'form-control-file' ]) !!}
+            </div>
+            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+          </div>
+        </div>
+
         <div class="form-group">
             {!! Form::label('extract', 'Extracto') !!}
             {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
@@ -121,7 +136,18 @@
 @stop
 
 @section('css')
-    <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
+    <style>
+      .image-wrapper{
+        position: relative;
+        padding-bottom: 56.25%;
+      }
+      .image-wrapper img{
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
 @stop
 
 @section('js')
