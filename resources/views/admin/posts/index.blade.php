@@ -11,6 +11,15 @@
 @stop
 
 @section('content')
+
+@if(session('info'))
+<div class="alert alert-success d-flex align-items-center" role="alert">
+  <strong>
+    {{session('info')}}
+  </strong>
+</div>
+@endif
+
     @livewire('admin.posts-index')
 @stop
 
