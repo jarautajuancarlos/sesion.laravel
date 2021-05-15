@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Taq;
+use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\StorePostRequest;
 
@@ -45,13 +46,15 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $post = Post::create($request->all());
+        return Storage::put('posts', $request->file('file'));
 
-        if($request->taqs){
-          $post->taqs()->attach($request->taqs);
-        }
-
-        return redirect()->route('admin.posts.edit', $post);
+        // $post = Post::create($request->all());
+        //
+        // if($request->taqs){
+        //   $post->taqs()->attach($request->taqs);
+        // }
+        //
+        // return redirect()->route('admin.posts.edit', $post);
     }
 
     /**
