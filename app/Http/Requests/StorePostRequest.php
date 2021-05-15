@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,22 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+          'id' => 'required',
+          'user_id' => 'required',
+          'name' => 'required',
+          'slug' => 'required|unique:posts',
+          'status' => 'required|in:1,2'
         ];
-    }
+
+        if($this->status == 2){
+          $rules = array_merge($rules, [
+            'category_id' => 'required',
+            'taqs' => 'required',
+            'extract' => 'required',
+            'body' => 'required'
+          ]);
+        }
+
+        return $rules;
 }
